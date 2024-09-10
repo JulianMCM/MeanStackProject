@@ -1,6 +1,16 @@
 # Proyecto MEAN Stack
 
-Este es un proyecto full stack desarrollado utilizando la pila MEAN (MongoDB, Express.js, Angular, Node.js). Su objetivo es [describe brevemente el propósito del proyecto, por ejemplo: gestionar usuarios, realizar una aplicación de ventas, etc.].
+Este es un proyecto full stack desarrollado utilizando la pila MEAN (MongoDB, Express.js, Angular, Node.js). Esta aplicación tiene como objetivo facilitar la gestión de proveedores de servicios. A través de una interfaz sencilla y eficiente, los usuarios pueden realizar las siguientes acciones:
+
+**Cargar una lista de proveedores:** La aplicación permite visualizar una lista completa de proveedores de servicios con información básica como el nombre, el tipo de servicio que ofrecen, y su información de contacto.
+
+**Agregar nuevos proveedores:** Los usuarios pueden añadir fácilmente nuevos proveedores a la lista, proporcionando todos los datos relevantes, como nombre, dirección, tipo de servicio, etc.
+
+**Modificar proveedores existentes:** Si algún dato de un proveedor cambia (por ejemplo, la dirección o el tipo de servicio), se puede modificar la información existente sin problemas.
+
+**Eliminar proveedores:** Los usuarios tienen la posibilidad de eliminar proveedores de la lista si ya no están activos o si no son relevantes.
+
+**Consultar detalles:** Para obtener información más detallada sobre un proveedor específico, la aplicación ofrece la funcionalidad de consultar datos adicionales, como servicios prestados, historial de colaboración, entre otros.
 
 # Características
 
