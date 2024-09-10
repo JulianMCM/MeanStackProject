@@ -1,0 +1,230 @@
+<!-- Add Provider Section -->
+<section class="page-section" id="add-provider-form">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <h2 class="mt-0">Add a New Provider</h2>
+        <hr class="divider my-4" />
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="row o-hidden border-0">
+        <div class="col-lg-12">
+          <h1 class="mt-0 text-success" *ngIf="submitted">
+            Added Successfully
+          </h1>
+          <p class="mt-0 alert alert-danger" *ngIf="emailError">
+            Error: {{ emailErrorMsg }}
+          </p>
+          <form [formGroup]="providersForm" class="user" *ngIf="!submitted" (ngSubmit)="handleSubmit()">
+            <div class="form-group row">
+              <div class="col-sm-6 mb-3 mb-sm-0">
+                <label for="inputFirstName">First Name</label>
+                <input type="text" class="form-control form-control-user" id="inputFirstName"
+                  formControlName="firstname" placeholder="Enter first name" [class.is-invalid]="
+                    providersForm.get('firstname')?.touched &&
+                    providersForm.get('firstname')?.invalid
+                  " />
+                <div *ngIf="providersForm.get('firstname')?.touched">
+                  <small class="text-danger" *ngIf="providersForm.get('firstname')?.errors?.['required']">
+                    First name is required.
+                  </small>
+                  <small class="text-danger" *ngIf="providersForm.get('firstname')?.errors?.['minlength']">
+                    First name must be at least 2 characters long.
+                  </small>
+                  <small class="text-danger" *ngIf="providersForm.get('firstname')?.errors?.['pattern']">
+                    Please enter a valid first name.
+                  </small>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <label for="inputLastName">Last Name</label>
+                <input type="text" class="form-control form-control-user" id="inputLastName" formControlName="lastname"
+                  placeholder="Enter last name" [class.is-invalid]="
+                    providersForm.get('lastname')?.touched &&
+                    providersForm.get('lastname')?.invalid
+                  " />
+                <div *ngIf="providersForm.get('lastname')?.touched">
+                  <small class="text-danger" *ngIf="providersForm.get('lastname')?.errors?.['required']">
+                    Last name is required.
+                  </small>
+                  <small class="text-danger" *ngIf="providersForm.get('lastname')?.errors?.['minlength']">
+                    Last name must be at least 2 characters long.
+                  </small>
+                  <small class="text-danger" *ngIf="providersForm.get('lastname')?.errors?.['pattern']">
+                    Please enter a valid last name.
+                  </small>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputPosition">Position</label>
+              <input type="text" class="form-control form-control-user" id="inputPosition" formControlName="position"
+                placeholder="Enter position" [class.is-invalid]="
+                  providersForm.get('position')?.touched &&
+                  providersForm.get('position')?.invalid
+                " />
+              <div *ngIf="providersForm.get('position')?.touched">
+                <small class="text-danger" *ngIf="providersForm.get('position')?.errors?.['required']">
+                  Position is required.
+                </small>
+                <small class="text-danger" *ngIf="providersForm.get('position')?.errors?.['minlength']">
+                  Position must be at least 2 characters long.
+                </small>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-6 mb-3 mb-sm-0">
+                <label for="inputEmail">Email</label>
+                <input type="email" class="form-control form-control-user" id="inputEmail" formControlName="email"
+                  placeholder="Enter email" [class.is-invalid]="
+                    providersForm.get('email')?.touched &&
+                    providersForm.get('email')?.invalid
+                  " />
+                <div *ngIf="providersForm.get('email')?.touched">
+                  <small class="text-danger" *ngIf="providersForm.get('email')?.errors?.['required']">
+                    Email is required.
+                  </small>
+                  <small class="text-danger" *ngIf="providersForm.get('email')?.errors?.['email']">
+                    Please enter a valid email address.
+                  </small>
+                </div>
+              </div>
+
+              <div class="col-sm-6 mb-3 mb-sm-0">
+                <label for="inputPhone">Phone</label>
+                <input type="tel" class="form-control form-control-user" id="inputPhone" formControlName="phone"
+                  placeholder="e.g., +911234567890 or 911234567890" [class.is-invalid]="
+                    providersForm.get('phone')?.touched &&
+                    providersForm.get('phone')?.invalid
+                  " />
+                <div *ngIf="providersForm.get('phone')?.touched">
+                  <small class="text-danger" *ngIf="providersForm.get('phone')?.errors?.['required']">
+                    Phone number is required.
+                  </small>
+                  <small class="text-danger" *ngIf="providersForm.get('phone')?.errors?.['pattern']">
+                    Please enter a valid phone number (optionally starting with
+                    +91, followed by 10 or 11 digits).
+                  </small>
+                </div>
+              </div>
+            </div>
+            <hr class="divider my-4" />
+            <div formGroupName="company">
+              <div class="form-group">
+                <label for="inputCompanyName">Company</label>
+                <input type="text" class="form-control form-control-user" id="inputCompanyName"
+                  formControlName="company_name" placeholder="Enter company name" [class.is-invalid]="
+                    providersForm.get('company.company_name')?.touched &&
+                    providersForm.get('company.company_name')?.invalid
+                  " />
+                <div *ngIf="providersForm.get('company.company_name')?.touched">
+                  <small class="text-danger" *ngIf="providersForm.get('company.company_name')?.errors?.['required']">
+                    Company name is required.
+                  </small>
+                  <small class="text-danger" *ngIf="providersForm.get('company.company_name')?.errors?.['minlength']">
+                    Company name must be at least 2 characters long.
+                  </small>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputAddress">Address</label>
+                <input type="text" class="form-control" formControlName="address"
+                  placeholder="1234 Main St, Apartment, studio, or floor" [class.is-invalid]="
+                    providersForm.get(['company', 'address'])?.touched &&
+                    providersForm.get(['company', 'address'])?.invalid
+                  " />
+                <div *ngIf="providersForm.get(['company', 'address'])?.touched">
+                  <small class="text-danger" *ngIf="providersForm.get(['company', 'address'])?.errors?.['required']">
+                    Address is required.
+                  </small>
+                  <small class="text-danger" *ngIf="providersForm.get(['company', 'address'])?.errors?.['minlength']">
+                    Address must be at least 5 characters long.
+                  </small>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputAddress2">Address 2</label>
+                <input type="text" class="form-control" formControlName="address2" placeholder="optional" />
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="inputCity">City</label>
+                  <input type="text" class="form-control" formControlName="city" placeholder="Enter city"
+                    [class.is.valid]="
+                      providersForm.get(['company', 'city'])?.touched &&
+                      providersForm.get(['company', 'city'])?.invalid
+                    " />
+                  <div *ngIf="providersForm.get(['company', 'city'])?.touched">
+                    <small class="text-danger" *ngIf="providersForm.get(['company', 'city'])?.errors?.['required']">
+                      City is required.
+                    </small>
+                    <small class="text-danger" *ngIf="providersForm.get(['company', 'city'])?.errors?.['minlength']">
+                      City must be at least 2 characters long.
+                    </small>
+                  </div>
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="inputState">State</label>
+                  <input type="text" class="form-control" formControlName="state" maxlength="2"
+                    placeholder="Enter State (KA)" [class.is-invalid]="
+                      providersForm.get(['company', 'state'])?.touched &&
+                      providersForm.get(['company', 'state'])?.invalid
+                    " />
+                  <div *ngIf="providersForm.get(['company', 'state'])?.touched">
+                    <small class="text-danger" *ngIf="providersForm.get(['company', 'state'])?.errors?.['required']">
+                      State is required.
+                    </small>
+                    <small class="text-danger" *ngIf="providersForm.get(['company', 'state'])?.errors?.['minlength']">
+                      State must be at least 2 characters long.
+                    </small>
+                  </div>
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="inputZipCode">Zip Code</label>
+                  <input type="text" class="form-control" formControlName="postal_code" maxlength="5"
+                    placeholder="Zip code" [class.is-invalid]="
+                      providersForm.get(['company', 'postal_code'])?.touched &&
+                      providersForm.get(['company', 'postal_code'])?.invalid
+                    " />
+                  <div *ngIf="
+                      providersForm.get(['company', 'postal_code'])?.touched
+                    ">
+                    <small class="text-danger"
+                      *ngIf="providersForm.get(['company', 'postal_code'])?.errors?.['required']">
+                      ZIP code is required.
+                    </small>
+                    <small class="text-danger"
+                      *ngIf="providersForm.get(['company', 'postal_code'])?.errors?.['minlength']">
+                      ZIP code must be at least 2 characters long.
+                    </small>
+                    <small class="text-danger"
+                      *ngIf="providersForm.get(['company', 'postal_code'])?.errors?.['maxlength']">
+                      ZIP code only 10 characters long.
+                    </small>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  <label for="inputDescription">Description</label>
+                  <textarea class="form-control form-control-user" formControlName="description"
+                    placeholder="Write company description"></textarea>
+                </div>
+                <div class="col-sm-6">
+                  <label for="inputTagLine">Tag Line</label>
+                  <textarea class="form-control form-control-user" formControlName="tagline"
+                    placeholder="Write company tagline"></textarea>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="providersForm.invalid">
+              Add Provider
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
